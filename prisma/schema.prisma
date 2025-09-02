@@ -18,8 +18,12 @@ model User {
   id        String   @id @default(uuid())
   name      String
   email     String   @unique
-  password  String
+  password  String   //Store bcrypt hash
   role      String   // Admin | Manager | Employee
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  hashedRt  String?  // Hashed Refresh Token
+
+  
 }
